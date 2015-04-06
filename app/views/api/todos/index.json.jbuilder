@@ -4,5 +4,6 @@ json.todos @todos do |todo|
   json.description todo.description
   json.completed todo.completed
   json.position todo.position
+  json.updated_at todo.updated_at
 end
 json.totalTodos @total_todos

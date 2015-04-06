@@ -121,6 +121,8 @@ GEM
       railties (= 4.2.1)
       sprockets-rails
     rails-assets-angular (1.2.28)
+    rails-assets-angular-animate (1.2.28)
+      rails-assets-angular (= 1.2.28)
     rails-assets-angular-resource (1.2.28)
       rails-assets-angular (= 1.2.28)
     rails-assets-angular-route (1.2.28)
@@ -210,6 +212,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.2.1)
   rails-assets-angular (~> 1.2.0)
+  rails-assets-angular-animate (~> 1.2.0)
   rails-assets-angular-resource (~> 1.2.0)
   rails-assets-angular-route (~> 1.2.0)
   rails-assets-angular-ui-bootstrap-bower (~> 0.12.0)

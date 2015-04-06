@@ -22,11 +22,12 @@
     </form>
 
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="list in lists">
+      <li class="list-group-item animated" ng-repeat="list in lists">
         <div class="todo-list-description">
           <a ng-href="/todo_lists/{{list.id}}">
             {{ list.name }}
           </a>
+          <span class="pull-right">{{ list.updated_at | date: 'medium'}}</span>
         </div>
         <div class="todo-list-buttons pull-right">
           <button class="btn btn-danger btn-xs pull-right" type="button" ng-click="deleteList(list, $index)">

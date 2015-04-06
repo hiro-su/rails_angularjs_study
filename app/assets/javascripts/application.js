@@ -17,6 +17,7 @@
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require angular-animate
 //= require angular-ui-bootstrap-bower
 //= require angular-xeditable
 //= require ng-sortable

@@ -10,7 +10,7 @@ angular.module('sampleApp').controller "TodoListCtrl", ($scope, $routeParams, To
     todo = @todoService.create(description: $scope.todoText, completed: false)
     todo.position = 1
     $scope.list.todos.unshift(todo)
-    $scope.todoDescription = ""
+    $scope.todoText = ""
 
   $scope.deleteTodo = (todo) ->
     lowerPositionsBelow($scope.list, todo)
@@ -18,7 +18,8 @@ angular.module('sampleApp').controller "TodoListCtrl", ($scope, $routeParams, To
     $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1)
 
   $scope.toggleTodo = (todo) ->
-    @todoService.update(todo, completed: todo.completed)
+    res = @todoService.update(todo, completed: todo.completed)
+    todo.updated_at = res.updated_at
 
   $scope.search = ->
     params = {

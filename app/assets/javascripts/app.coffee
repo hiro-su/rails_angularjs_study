@@ -1,6 +1,6 @@
 # AngularJSの設定ファイル
 # 依存ライブラリを記述
-app = angular.module('sampleApp', ['ui.bootstrap', 'ngResource', 'ngRoute', 'xeditable', 'ui.sortable'])
+app = angular.module('sampleApp', ['ui.bootstrap', 'ngResource', 'ngRoute', 'xeditable', 'ui.sortable', 'ngAnimate'])
 
 # CSRFのトークンを設定
 app.config ($httpProvider) ->

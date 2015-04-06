@@ -14,7 +14,7 @@ class Api::TodosController < ApplicationController
 
   def update
     todo.update!(todo_params)
-    render nothing: true, status: 204
+    render json: todo, status: 201
   end
 
   def destroy

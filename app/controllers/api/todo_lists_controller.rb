@@ -14,8 +14,8 @@ class Api::TodoListsController < ApplicationController
   end
 
   def update
-    @todo_list.update(todo_list_params)
-    render nothing: true
+    @todo_list.update!(todo_list_params)
+    render json: @todo_list, status: 201
   end
 
   def destroy

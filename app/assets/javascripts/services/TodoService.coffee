@@ -8,14 +8,21 @@ angular.module('sampleApp').factory 'Todo', ($resource, $http) ->
       @errorHandler = errorHandler
 
     create: (attrs) ->
-      new @service(todo: attrs).$save ((todo) -> attrs.id = todo.id), @errorHandler
+      new @service(todo: attrs).$save ((todo) ->
+        attrs.id = todo.id
+        attrs.updated_at = todo.updated_at
+      ), @errorHandler
       attrs
 
     delete: (todo) ->
       new @service().$delete { id: todo.id }, (-> null), @errorHandler
 
     update: (todo, attrs) ->
-      new @service(todo: attrs).$update { id: todo.id }, (-> null), @errorHandler
+      new @service(todo: attrs).$update { id: todo.id }, ((res) ->
+        todo.id = res.id
+        todo.updated_at = res.updated_at
+      ), @errorHandler
+      todo
 
     all: (params, successHandler) ->
       @service.query(params, ((list)->

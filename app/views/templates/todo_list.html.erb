@@ -32,7 +32,8 @@
   <div class="panel panel-success">
 
     <div class="panel-heading">
-      <span editable-text="list.name" onaftersave="updateListName()">{{list.name}}</span>
+      <span editable-text="list.name" onaftersave="updateListName()">{{ list.name }}</span>
+      <span class="pull-right">{{ list.updated_at | date: 'medium'}}</span>
     </div>
 
     <form id="new_todo" ng-submit="addTodo()">
@@ -43,12 +44,13 @@
     </form>
 
     <ul data-as-sortable="sortListeners" data-ng-model="list.todos" class="list-group">
-      <li data-as-sortable-item class="list-group-item" ng-repeat="todo in list.todos" ng-class="{completed: todo.completed}">
+      <li data-as-sortable-item class="list-group-item animated" ng-repeat="todo in list.todos" ng-class="{completed: todo.completed}">
         <div class="todo-completed">
           <input type="checkbox" ng-model="todo.completed" ng-change="toggleTodo(todo)">
         </div>
         <div data-as-sortable-item-handle class="todo-description">
-          <span editable-text="todo.description" onaftersave="updateDescription(todo)">{{todo.description}}</span>
+          <span editable-text="todo.description" onaftersave="updateDescription(todo)">{{ todo.description }}</span>
+          <span class="pull-right">{{ todo.updated_at | date: 'medium'}}</span>
         </div>
         <div class="todo-buttons pull-right">
           <button class="btn btn-danger btn-xs pull-right" type="button" ng-click="deleteTodo(todo)">
