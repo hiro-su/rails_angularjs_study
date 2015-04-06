@@ -23,6 +23,7 @@ gem 'rails-assets-ng-sortable'
 gem 'ransack'
 gem 'kaminari'
 gem 'acts_as_list'
+gem 'slim-rails'
 
 group :development, :test do
   gem 'byebug'

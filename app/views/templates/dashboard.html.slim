@@ -1,0 +1,26 @@
+.container[ng-init="init()"]
+  h1
+    | ダッシュボード - Dashboard
+  .panel.panel-success.dashboard-list
+    .panel-heading
+      h4
+        | すべての Todoリスト
+    ul.list-group[ng-show="lists == 0"]
+      li.list-group-item
+        |  リストはまだ作成されていません 
+    form#new_list[ng-submit="createList(listName)"]
+      .input-group
+        input#todoDescription.form-control.input-lg[type="text" autofocus="autofocus" placeholder="リスト名" maxlength="255" ng-model="listName"]
+        span.input-group-btn
+          button.btn.btn-success.btn-lg[type="submit"]
+            | 作成
+    ul.list-group
+      li.list-group-item.animated[ng-repeat="list in lists"]
+        .todo-list-description
+          a[ng-href="/todo_lists/{{list.id}}"]
+            |  {{ list.name }} 
+          span.pull-right
+            | {{ list.updated_at | date: 'medium'}}
+        .todo-list-buttons.pull-right
+          button.btn.btn-danger.btn-xs.pull-right[type="button" ng-click="deleteList(list, $index)"]
+            span.fa.fa-ban
