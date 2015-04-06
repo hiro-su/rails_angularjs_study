@@ -6,11 +6,12 @@ angular.module('sampleApp').controller "TodoListCtrl", ($scope, $routeParams, To
     $scope.list = @todoListService.find($routeParams.list_id, (res) -> $scope.totalTodos = res.totalTodos)
 
   $scope.addTodo = ->
-    raisePositions($scope.list)
-    todo = @todoService.create(description: $scope.todoText, completed: false)
-    todo.position = 1
-    $scope.list.todos.unshift(todo)
-    $scope.todoText = ""
+    if $scope.todoText
+      raisePositions($scope.list)
+      todo = @todoService.create(description: $scope.todoText, completed: false)
+      todo.position = 1
+      $scope.list.todos.unshift(todo)
+      $scope.todoText = ""
 
   $scope.deleteTodo = (todo) ->
     lowerPositionsBelow($scope.list, todo)

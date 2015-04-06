@@ -5,9 +5,10 @@ angular.module('sampleApp').controller "DashboardCtrl", ($scope, TodoList) ->
     $scope.lists = @listsService.all()
 
   $scope.createList = (listName) ->
-    list = @listsService.create(name: listName)
-    $scope.lists.push(list)
-    $scope.listName = ""
+    if listName
+      list = @listsService.create(name: listName)
+      $scope.lists.push(list)
+      $scope.listName = ""
 
   $scope.deleteList = (list, index) ->
     if confirm "リストを削除しますか?"
